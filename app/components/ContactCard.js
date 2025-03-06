@@ -1,26 +1,29 @@
 import ContactListItem from "./ContactListItem";
 
-
 export default function ContactCard() {
-
-
   return (
+
+    <div className="contact-info">Conact Info
     <div className="container">
       <div className="row">
-      <label> Name</label>
-      <input type="text" placeholder="Enter your Name"/>
+        <label className="text-center label-huh"> Name</label>
+        <p>user.name</p>
 
-      <label> Email</label>
-      <input type="email" placeholder="Enter email" />
+        <label className="text-center"> Email</label>
+        <p>user.email</p>
 
-      <label> image URL</label>
-      <input type="file" placeholder="Upload image URL"/>
+        <label className="text-center"> Image URL</label>
+        <div className="text-center">
+          <p>img src="img.jpeg"</p>
+        </div>
 
-      <label> Phone Number</label>
-      <input type="text" placeholder="Enter phone number "/>
-       
-</div> 
-      <ContactListItem /> 
-    </div>
+        <label className="text-center"> Phone Number</label>
+        <p>user.phoneNumber</p>
+
+        <div className="row m-4 text-center">
+          <ContactListItem />
+        </div>
+      </div>
+    </div></div>
   );
 }
