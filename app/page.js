@@ -23,8 +23,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>ALL CONTACTS</h1>
-      <AddContact onAdd{addContact} />
+    <h1> HOME PAGE</h1>
     </div>
   );
 }
