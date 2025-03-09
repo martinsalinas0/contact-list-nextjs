@@ -1,5 +1,18 @@
 export const ContactsAPI = { 
-  contacts: [], 
+  contacts: [{
+    "id": 70219577,
+    "name": "Albert Einstein",
+    "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+    "email": "aeinstein@example.com",
+    "phone_number": "15555555555"
+  }, 
+  {
+    "id": 70219577,
+    "name": "Albert Einstein JUNIOR",
+    "image_url": "https://en.wikipedia.org/wiki/Albert_Einstein#/media/File:Einstein_1921_by_F_Schmutzer_-_restoration.jpg",
+    "email": "aeinstein@example.com",
+    "phone_number": "15555555555"
+  }], 
   all: function(){ 
     return this.contacts
   },
@@ -13,3 +26,5 @@ export const ContactsAPI = {
     return this.contacts.find(isContact)
   }
 }
+
+
