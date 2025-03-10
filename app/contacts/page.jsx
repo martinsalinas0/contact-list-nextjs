@@ -1,35 +1,40 @@
-//contacts/page
 "use client";
-import Link from "next/link";
-import { useState } from "react";
-import { ContactsAPI } from "../data/contactsAPI";
-import AddContactComp from "../components/ContactCard";
 
-export default function Contacts() {
-  const [allContacts, _] = useState(ContactsAPI.all());
+import { ContactsAPI } from "../data/contactsAPI";
+
+export default function ContactList() {
+
+
+  const [contactList, setContactList] = useState(ContactsAPI.getAll()); 
+  const [searchedContacts , setSearchedContacts] = useState(allContacts)
+
+  const handleSearch = (searchQuery) => {
+    setSearchedContacts
+  }
+
+
+
+
 
   return (
-    <main>
-      <div className="container mt-4">
-        <input
-          type="text"
-          className="form-control mb-3"
-          placeholder="Search Contacts"
-        />
+    <div>
+      <div>CONTACT LIST
 
+  </div>
+  <div className="container mt-4">
         <ul className="list-group">
-          {allContacts.map(({ id, imageUrl, name, email, number }) => (
+          {filteredContacts.map(({ id, imageUrl, name, email, number }) => (
             <li
               key={id}
               className="list-group-item d-flex align-items-center justify-content-between"
             >
               <div className="d-flex align-items-center">
                 <img
-                  src={imageUrl}
+                  src={imageUrl ? imageUrl : "https://media.istockphoto.com/id/2170242767/vector/flat-illustration-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture.jpg?s=612x612&w=0&k=20&c=fZX-n77VuWJ4jrzOUG0FRX6GxOxzHeZuc0wWQ2C549U="}
                   alt="profile"
                   className="rounded-circle me-3"
                   style={{ width: 50, height: 50 }}
-                ></img>
+                />
                 <div>
                   <Link
                     href={`/contacts/${id}`}
@@ -37,17 +42,24 @@ export default function Contacts() {
                   >
                     {name}
                   </Link>
-                  <div >{email}</div>
-                  <div >{number}</div>
+                  <div>{email}</div>
+                  <div>{number}</div>
                 </div>
               </div>
-              <a href="#" className="text-primary text-decoration-none">
-                Edit
-              </a>
+              <div>
+                <Link href={`/contacts/edit/${id}`} className="btn btn-primary mx-2 btn-sm">
+                  Edit
+                </Link>
+                <button
+                  className="btn btn-danger btn-sm mx-2"
+                  onClick={() => handleDelete(id)}
+                >
+                  Delete
+                </button>
+              </div>
             </li>
           ))}
         </ul>
-       
 
         <div className="mt-3">
           <Link href="/contacts/new" className="btn btn-primary">
@@ -58,61 +70,7 @@ export default function Contacts() {
           </Link>
         </div>
       </div>
-    </main>
-    // <main>
-    //   <div>
-
-    //   </div>
-    //   <div>
-    //     <div>
-    //       <div className="container mt-4">
-    //         <div className="mb-3">
-    //           <input
-    //             type="text"
-    //             className="form-control"
-    //             placeholder="Search Contacts"
-    //           />
-    //         </div>
-
-    //         <ul className="list-group">
-    //           {allContacts.map((contact) => (
-    //             <li
-    //               key={contact.id}
-    //               className="list-group-item d-flex align-items-center justify-content-between"
-    //             >
-    //               <div className="d-flex align-items-center">
-    //                 <img
-    //                   src={contact.imageUrl}
-    //                   alt="profile"
-    //                   className="rounded-circle me-3"
-    //                   style={{ width: "50px", height: "50px" }}
-    //                 />
-
-    //                 <div>
-    //                   <a
-    //                     href="#"
-    //                     className="text-primary text-decoration-none fw-bold"
-    //                   >
-    //                      <Link href={`/contacts/${contact.id}`}>{contact.name}</Link>
-    //                   </a>
-    //                   <div className="text-muted">{contact.email}</div>
-    //                   <div className="text-muted">{contact.number}</div>
-    //                 </div>
-    //               </div>
-
-    //               <a href="#" className="text-primary text-decoration-none">
-    //                 Edit
-    //               </a>
-    //             </li>
-    //           ))}
-    //         </ul>
-    //       </div>
-    //     </div>
-
-    //     <Link href="/contacts/new">Add Contact</Link>
-    //     <br></br>
-    //     <Link href="/..">Back</Link>
-    //   </div>
-    // </main>
+    
+  </div>
   );
 }
