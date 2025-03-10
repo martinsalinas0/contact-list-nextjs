@@ -4,7 +4,8 @@
 'use client'
 import { useParams } from "next/navigation"
 import Link from "next/link"
-import { ContactsAPI } from "@/app/data/ContactsAPI"
+
+import ContactCard from "@/app/components/ContactCard";
 
 
 export default function Contact () { 
@@ -20,20 +21,7 @@ export default function Contact () {
   }
 
   return ( 
-    <div className="d-flex justify-content-center">
-      <div className="card" style={{ width: "40rem",  width: "50rem" }}>
-        <div className="card-body text-center">
-          <h1 className="card-title">{contact.name} </h1>
-          <img
-            src={'contact.imageUrl'}
-            className="rounded img-fluid "
-            style={{ width:450, height: 350 }}
-          />
-          <p className="card-text">{contact.number}</p>
-          <p className="card-text">{contact.email}</p>
-        </div>
-      </div>
-    </div>
+<ContactCard />
   )
 
 }

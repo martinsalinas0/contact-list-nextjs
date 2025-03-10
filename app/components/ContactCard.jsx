@@ -1,20 +1,36 @@
-import Contacts from "../contacts/page";
+"use client";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-export default function ContactCard({contacts}) {
+export default function ContactCard({ contact }) {
+  const router = useRouter();
+
+  const handleEditClick = () => {
+    router.push(`/contacts/edit/${contact.pid}`);
+  };
+
   return (
-    <div className="d-flex justify-content-center">
-      <div className="card" style={{ width: "40rem",  width: "50rem" }}>
-        <div className="card-body text-center">
-          <h1 className="card-title">NAME HERE </h1>
-          <img
-            src="https://media.istockphoto.com/id/2170242767/vector/flat-illustration-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture.jpg?s=612x612&w=0&k=20&c=fZX-n77VuWJ4jrzOUG0FRX6GxOxzHeZuc0wWQ2C549U="
-            className="rounded img-fluid "
-            style={{ width:450, height: 350 }}
-          />
-          <p className="card-text">512-543-1234</p>
-          <p className="card-text">namehere@gmail.com</p>
+  
+      <div className="d-flex justify-content-center">
+        <div className="card" style={{ width: "40rem",  width: "50rem" }}>
+          <div className="card-body text-center">
+            <h1 className="card-title">{contact.name} </h1>
+            <img
+              src={contact.imageUrl}
+              className="rounded img-fluid "
+              style={{ width:450, height: 350 }}
+            />
+            <p className="card-text">Phone Number: <strong>{contact.number}</strong></p>
+            <p className="card-text">Email address: <strong>{contact.email}</strong></p>
+            <p>ID#: {contact.pid}</p>
+            <button>Edit</button>
+            <button>Delete</button>
+            <button>Back</button>
+
+
+          </div>
         </div>
       </div>
-    </div>
+   
   );
 }
