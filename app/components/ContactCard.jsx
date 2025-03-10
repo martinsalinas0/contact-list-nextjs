@@ -1,4 +1,6 @@
-export default function ContactCard() {
+import Contacts from "../contacts/page";
+
+export default function ContactCard({contacts}) {
   return (
     <div className="d-flex justify-content-center">
       <div className="card" style={{ width: "40rem",  width: "50rem" }}>
