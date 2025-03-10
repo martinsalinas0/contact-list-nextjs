@@ -1,27 +1,14 @@
+"use client";
+import { useParams } from "next/navigation";
+import { ContactsAPI } from "@/app/data/contactsAPI";
+import ContactCard from "@/app/components/ContactCard"; 
+export default function ContactDetail() {
+  const { pid } = useParams();
+  const contact = ContactsAPI.getMethod(parseInt(pid, 10)); 
 
-
-
-'use client'
-import { useParams } from "next/navigation"
-import Link from "next/link"
-
-import ContactCard from "@/app/components/ContactCard";
-
-
-export default function Contact () { 
-  const {id} = useParams(); 
-  const contact = ContactsAPI.get(parseInt(id, 10)); 
-
-  if (!contact) { 
-    return ( 
-      <div>
-        Sorry, no contact was found
-      </div>
-    )
+  if (!contact) {
+    return <div className="text-center">Sorry, contact not found.</div>;
   }
 
-  return ( 
-<ContactCard />
-  )
-
+  return <ContactCard contact={contact} />; 
 }
