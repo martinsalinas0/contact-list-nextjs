@@ -1,18 +1,24 @@
-import { ContactsAPI } from "../data/contactsAPI";
+"use client";
+import { useState } from "react";
 
-function SearchBar() {
+export default function SearchBar({ onSearch }) {
+  const [query, setQuery] = useState("");
 
-  const[query, setQuery] = useState('')
+  const handleInput = (event) => {
+    const input = event.target.value.toLowerCase();
+    setQuery(input);
+    onSearch(input);
+  };
 
-console.log(query)
   return (
-    <div>
-      <input type="text" placeholder="Search.." onChange={(event) => setQuery(event.target.value)} />
-      <ul>
-        {ContactsAPI.contacts.map((contact) => (
-          <li key={id} className="list-item">{contact.name}</li>
-                ))}
-      </ul>
+    <div className="container">
+      <input
+        type="text"
+        placeholder="Search Contact"
+        className="form-control mt-3"
+        value={query}
+        onChange={handleInput}
+      />
     </div>
   );
 }
