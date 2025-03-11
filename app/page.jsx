@@ -11,7 +11,7 @@ export default function Homepage() {
       </header>
 
       <div className="container mt-5">
-        <div className="row row-cols-1 row-cols-md-2 g-5 justify-content-center d-flex gap-0">
+        <div className="row  row-cols-md-2 g-5 justify-content-center d-flex gap-0">
           <div className="col d-flex justify-content-end">
             <div className="card h-100 text-center" style={{ width: "17rem" }}>
               <div className="card-body d-flex flex-column align-items-center justify-content-center">
