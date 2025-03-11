@@ -28,12 +28,7 @@ export default function AddContactForm() {
     router.push("/contacts");
   };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setImageUrl(URL.createObjectURL(file));
-    }
-  };
+
 
   return (
     <div className="d-flex justify-content-center">
@@ -81,9 +76,10 @@ export default function AddContactForm() {
             <div className="mb-3">
               <label className="form-label">Profile Picture</label>
               <input
-                type="file"
+                type="text"
                 className="form-control"
-                onChange={handleFileChange}
+                value={imageUrl}
+                onChange={(event) => setImageUrl(event.target.value)}
               />
             </div>
             <button
