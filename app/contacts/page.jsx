@@ -1,9 +1,10 @@
 import ContactList from "../components/ContactList";
 
-export default function ContactsPage () { 
-  return ( 
+
+export default function ContactsPage() {
+  return (
     <div>
-      <ContactList /> 
+      <ContactList />
     </div>
-  )
+  );
 }
