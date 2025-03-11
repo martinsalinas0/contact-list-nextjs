@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
-import { ContactsAPI } from "./app/data/contactsAPI";
-import ContactCard from "./app/components/ContactCard";
+import { ContactsAPI } from "@/app/data/contactsAPI";
+import ContactCard from "@/app/components/ContactCard";
 
 export default function ContactDetail() {
   const { id } = useParams();
