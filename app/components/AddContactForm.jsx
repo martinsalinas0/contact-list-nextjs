@@ -80,6 +80,7 @@ export default function AddContactForm() {
                 className="form-control"
                 value={imageUrl}
                 onChange={(event) => setImageUrl(event.target.value)}
+                placeholder="Enter URL link to image"
               />
             </div>
             <button
